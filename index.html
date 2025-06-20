@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>TowingForward - Turn missed calls into sales</title>
+    <link
+      rel="icon"
+      href="../towingforward-website/public/assets/logo/logo-big 1.png"
+      type="image/png"
+    />
+
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <!-- Component CSS -->
+    <link rel="stylesheet" href="assets/css/components/buttons.css" />
+    <link rel="stylesheet" href="assets/css/components/cards.css" />
+    <link rel="stylesheet" href="assets/css/components/forms.css" />
+    <!-- Section CSS -->
+    <link rel="stylesheet" href="assets/css/sections/header.css" />
+    <link rel="stylesheet" href="assets/css/sections/hero.css" />
+    <link rel="stylesheet" href="assets/css/sections/meetyournewemploy.css" />
+    <link rel="stylesheet" href="assets/css/sections/aiassistant.css" />
+    <link rel="stylesheet" href="assets/css/sections/local.css" />
+    <link rel="stylesheet" href="assets/css/sections/towingsuccess.css" />
+    <link rel="stylesheet" href="assets/css/sections/result.css" />
+    <link rel="stylesheet" href="assets/css/sections/faq.css" />
+    <link rel="stylesheet" href="assets/css/sections/lastpage.css" />
+
+    <!-- Utilities -->
+    <link rel="stylesheet" href="assets/css/utilities.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <div id="hero-placeholder"></div>
+    <div id="employee-placeholder"></div>
+    <!-- AI Assistant Section -->
+    <div id="ai-assistant-section-placeholder"></div>
+    <!-- Local Business Section -->
+    <div id="local-business-section-placeholder"></div>
+
+    <!-- Towing Success Section -->
+    <div id="stats-section"></div>
+
+    <!-- Testimonials Section -->
+    <div id="testimonials-section-placeholder"></div>
+
+    <!-- FAQ Section -->
+    <div id="faq-section"></div>
+
+    <!-- Missed Call Section -->
+    <div id="towing-forward-section-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/modules/mobile-menu.js"></script>
+    <script src="assets/js/modules/testimonial-slider.js"></script>
+    <!-- Added testimonial slider script -->
+    <script>
+      // Load header content
+      fetch("sections/header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html;
+          // Initialize mobile menu after header is loaded
+          const mobileMenuScript = document.createElement("script");
+          mobileMenuScript.src = "assets/js/modules/mobile-menu.js";
+          document.body.appendChild(mobileMenuScript);
+        })
+        .catch((err) => console.error("Error loading header:", err));
+
+      // Load hero content
+      fetch("sections/hero.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("hero-placeholder").innerHTML = html;
+        })
+        .catch((err) => console.error("Error loading hero:", err));
+
+      fetch("sections/meetyournewemploy.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("employee-placeholder").innerHTML = html;
+        })
+        .catch((err) => console.error("Error loading employee section:", err));
+
+      // Load AI Assistant content
+      fetch("sections/aiassistant.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById(
+            "ai-assistant-section-placeholder"
+          ).innerHTML = html;
+        })
+        .catch((err) =>
+          console.error("Error loading AI Assistant section:", err)
+        );
+
+      // Load local business section
+      fetch("sections/local.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById(
+            "local-business-section-placeholder"
+          ).innerHTML = html;
+        })
+        .catch((err) =>
+          console.error("Error loading local business section:", err)
+        );
+
+      //towingsuccess section
+      fetch("sections/towingsuccess.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("stats-section").innerHTML = html;
+        })
+        .catch((err) =>
+          console.error("Error loading local business section:", err)
+        );
+
+      // Load testimonials section with animation support
+      <!-- In your testimonials fetch section -->
+      fetch("sections/result.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById(
+            "testimonials-section-placeholder"
+          ).innerHTML = html;
+
+          // Initialize animations immediately with shorter delay
+          setTimeout(() => {
+            const cards = document.querySelectorAll(".testimonial-card");
+            cards.forEach((card) => {
+              card.classList.add("animate");
+            });
+
+            if (typeof initTestimonialSlider === "function") {
+              initTestimonialSlider();
+            }
+          }, 50); // Shorter delay before starting animations
+        })
+        .catch((err) =>
+          console.error("Error loading testimonials section:", err)
+        );
+
+      //faq section
+      fetch("sections/faq.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("faq-section").innerHTML = html;
+        })
+        .catch((err) =>
+          console.error("Error loading testimonials section:", err)
+        );
+
+      // Load last page section
+      fetch("sections/lastpage.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById(
+            "towing-forward-section-placeholder"
+          ).innerHTML = html;
+        })
+        .catch((err) => console.error("Error loading last page section:", err));
+    </script>
+  </body>
+</html>
